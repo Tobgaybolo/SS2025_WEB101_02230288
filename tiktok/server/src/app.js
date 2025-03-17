@@ -12,7 +12,7 @@ const commentRoutes = require('./routes/comments');
 const app = express();
 
 // Middleware
-app.use(morgan('dev')); // Logging
+app.use(morgan('dev'));
 app.use(cors()); // Enable CORS for all routes
 app.use(bodyParser.json()); // Parse JSON bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies

@@ -7,7 +7,7 @@ const getAllUsers = (req, res) => {
 
 // GET user by ID
 const getUserById = (req, res) => {
-    const usrId = parseInt(req.params.id);
+    const userId = parseInt(req.params.id);
     const user = dataStore.users.find(u => u.id === userId);
 
     if (!user) {
@@ -44,7 +44,7 @@ const createUser = (req, res) => {
         email,
         name: name || username,
         followers: [],
-        followers: [],
+        following: [],
         createdAt: new Date().toISOString()
     };
 
@@ -76,14 +76,14 @@ const updateUser = (req, res) => {
         user.email = email;
     }
 
-    user.updatedAT = new Date().toISOString();
+    user.updatedAt = new Date().toISOString();
 
     res.status(200).json(user);
 };
 
 // DELETE a user 
 const deleteUser = (req, res) => {
-    const userId = parseInt(req.parmas.id);
+    const userId = parseInt(req.params.id);
     const userIndex = dataStore.users.findIndex(u => u.id === userId);
 
     if (userIndex === -1) {
@@ -191,7 +191,7 @@ const unfollowUser = (req, res) => {
     }
 
     // Check if following relationship exists
-    const followerIndex = userToFollow.followers.indexOf(followerIdInt);
+    const followerIndex = userToUnfollow.followers.indexOf(followerIdInt);
     const followingIndex = follower.following.indexOf(userToUnfollowId);
 
     if (followerIndex === -1 || followingIndex === -1) {

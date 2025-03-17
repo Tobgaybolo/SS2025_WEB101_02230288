@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "text": "echo \"Error: no text specified\" && exit 1"
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.12",
     "react-icons": "^5.5.0",

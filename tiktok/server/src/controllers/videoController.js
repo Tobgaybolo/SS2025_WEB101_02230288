@@ -6,7 +6,7 @@ const getAllVideos = (req, res) => {
 };
 
 // GET video by ID
-const getById = (req, res) => {
+const getVideoById = (req, res) => {
     const videoId = parseInt(req.params.id);
     const video = dataStore.videos.find(v => v.id === videoId);
 
